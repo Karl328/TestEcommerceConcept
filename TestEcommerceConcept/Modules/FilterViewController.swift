@@ -10,7 +10,8 @@ import SnapKit
 import iOSDropDown
 
 final class FilterViewController: UIViewController {
-   
+    let deviceType = UIDevice.current.modelName
+    
     private lazy var xButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "xButton"), for: .normal)
@@ -75,49 +76,50 @@ final class FilterViewController: UIViewController {
         configDropDownBrand()
         configDropDownPrice()
         configDropDownSize()
+    
     }
     
     @objc func tapXbutton() {
         dismiss(animated: true)
     }
     
+    
+    private func configDropDown (x: CGFloat, y: CGFloat, optionArray: [String], text: String ) {
+        let dropDown = DropDown(frame: CGRect(x: x, y: y, width: view.bounds.width - 70, height: 40))
+        dropDown.optionArray = optionArray
+        dropDown.textColor = Colors.myBlue
+        dropDown.font = Fonts.Mark15
+        dropDown.arrowColor = .lightGray
+        dropDown.arrowSize = 15
+        dropDown.selectedRowColor = .lightGray
+        dropDown.borderStyle = .roundedRect
+        dropDown.text = text
+        view.addSubview(dropDown)
+    }
     private func configDropDownBrand() {
-        let dropDownBrand = DropDown(frame: CGRect(x: 40, y: 165, width: view.bounds.width - 70, height: 40))
-        dropDownBrand.optionArray = ["Samsung", "iPhone", "Xiaomi"]
-        dropDownBrand.textColor = Colors.myBlue
-        dropDownBrand.font = Fonts.Mark15
-        dropDownBrand.arrowColor = .lightGray
-        dropDownBrand.arrowSize = 15
-        dropDownBrand.selectedRowColor = .lightGray
-        dropDownBrand.borderStyle = .roundedRect
-        dropDownBrand.text = "Samsung"
-        view.addSubview(dropDownBrand)
+        switch deviceType {
+        case "iPhone10,4", "iPhone10,5":
+         configDropDown(x: 40, y: 145, optionArray: ["Samsung", "iPhone", "Xiaomi"], text: "Samsung")
+        default:
+            configDropDown(x: 40, y: 165, optionArray: ["Samsung", "iPhone", "Xiaomi"], text: "Samsung")
+        }
     }
-    
     private func configDropDownPrice() {
-        let dropDownPrice = DropDown(frame: CGRect(x: 40, y: 240, width: view.bounds.width - 70, height: 40))
-        dropDownPrice.optionArray = ["$300-500$", "$500-$1000", "$1000-$2000", "$2000-$3000"]
-        dropDownPrice.textColor = Colors.myBlue
-        dropDownPrice.font = Fonts.Mark15
-        dropDownPrice.arrowColor = .lightGray
-        dropDownPrice.arrowSize = 15
-        dropDownPrice.selectedRowColor = .lightGray
-        dropDownPrice.borderStyle = .roundedRect
-        dropDownPrice.text = "$300-$500"
-        view.addSubview(dropDownPrice)
+        switch deviceType {
+        case "iPhone10,4", "iPhone10,5":
+            configDropDown(x: 40, y: 220, optionArray: ["$300-500$", "$500-$1000", "$1000-$2000", "$2000-$3000"], text: "$300-$500")
+        default:
+            configDropDown(x: 40, y: 240, optionArray: ["$300-500$", "$500-$1000", "$1000-$2000", "$2000-$3000"], text: "$300-$500")
+        }
     }
-    
     private func configDropDownSize() {
-        let dropDownSize = DropDown(frame: CGRect(x: 40, y: 315, width: view.bounds.width - 70, height: 40))
-        dropDownSize.optionArray = ["4.5 to 5.5 inches", "5.5 to 6 inches", "6.5 to 7 inches", "7.5 to 8 inches"]
-        dropDownSize.textColor = Colors.myBlue
-        dropDownSize.font = Fonts.Mark15
-        dropDownSize.arrowColor = .lightGray
-        dropDownSize.arrowSize = 15
-        dropDownSize.selectedRowColor = .lightGray
-        dropDownSize.borderStyle = .roundedRect
-        dropDownSize.text = "4.5 to 5.5 inches"
-        view.addSubview(dropDownSize)
+        switch deviceType {
+        case "iPhone10,4", "iPhone10,5":
+            configDropDown(x: 40, y: 290, optionArray: ["4.5 to 5.5 inches", "5.5 to 6 inches", "6.5 to 7 inches", "7.5 to 8 inches"], text: "4.5 to 5.5 inches")
+        default:
+            configDropDown(x: 40, y: 315, optionArray: ["4.5 to 5.5 inches", "5.5 to 6 inches", "6.5 to 7 inches", "7.5 to 8 inches"], text: "4.5 to 5.5 inches")
+        }
+        
     }
     // MARK: - addSubview
     private func addSubview() {
@@ -131,6 +133,18 @@ final class FilterViewController: UIViewController {
     }
     // MARK: - setConstraints
     private func setConstraints() {
+        
+        switch deviceType {
+        case "iPhone10,4", "iPhone10,5":
+            brandLabel.snp.makeConstraints { make in
+                make.left.equalTo(view.snp.left).offset(40)
+                make.top.equalTo(xButton.snp.bottom).offset(25)
+                make.width.equalTo(100)
+                make.height.equalTo(30)
+            }
+        default:
+           break
+        }
         xButton.snp.makeConstraints { make in
             make.width.equalTo(50)
             make.height.equalTo(50)
