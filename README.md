@@ -7,8 +7,8 @@
 
 # Installation
 У вас должны быть установлены SPM:
-Kingfisher -https://github.com/onevcat/Kingfisher
-SnapKit- https://github.com/SnapKit/SnapKit?ysclid=l8lb1itkfr252905437
+Kingfisher - https://github.com/onevcat/Kingfisher <br>
+SnapKit- https://github.com/SnapKit/SnapKit?ysclid=l8lb1itkfr252905437 <br>
 iOSDropDown - https://github.com/jriosdev/iOSDropDown
 
 # Детали реализации
