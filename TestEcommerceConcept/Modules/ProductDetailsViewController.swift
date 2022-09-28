@@ -472,7 +472,7 @@ final class ProductDetailsViewController: UIViewController {
                 make.left.equalToSuperview()
                 make.right.equalToSuperview()
                 make.bottom.equalTo(view.snp.bottom)
-                make.height.equalTo(300)
+                make.height.equalTo(350)
                 
             }
         default:

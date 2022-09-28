@@ -99,7 +99,7 @@ final class ExplorerViewController: UIViewController {
     @objc func tapFilterButton() {
         let filterVC = FilterViewController()
         if let presentationController = filterVC.presentationController as? UISheetPresentationController {
-            presentationController.detents = [.medium()] /// change to [.medium(), .large()] for a half *and* full screen sheet
+            presentationController.detents = [.medium()]
         }
         self.present(filterVC, animated: true)
     }
@@ -108,7 +108,7 @@ final class ExplorerViewController: UIViewController {
         let deviceType = UIDevice.current.modelName
         switch deviceType {
         case "iPhone10,4", "iPhone10,5":
-            mainScrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height * 1.8)
+            mainScrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height + 450)
         default:
             mainScrollView.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height + 350)
         }
@@ -245,6 +245,7 @@ final class ExplorerViewController: UIViewController {
     // MARK: - setConstraints
     private func setConstraints() {
         //selectCategoryLabel setConstraints
+        
         selectCategoryLabel.snp.makeConstraints { make in
             make.height.equalTo(100)
             make.width.equalTo(280)

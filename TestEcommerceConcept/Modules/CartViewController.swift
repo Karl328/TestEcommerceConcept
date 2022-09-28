@@ -329,6 +329,51 @@ final class CartViewController: UIViewController {
     }
     // MARK: - setConstraints
     private func setConstraints() {
+        
+        let deviceType = UIDevice.current.modelName
+        switch deviceType {
+        case "iPhone10,4", "iPhone10,5":
+            backButton.snp.makeConstraints { make in
+                make.left.equalTo(view.snp.left).offset(40)
+                make.top.equalTo(view.snp.top).offset(40)
+                make.width.equalTo(40)
+                make.height.equalTo(40)
+            }
+            addressLabel.snp.makeConstraints { make in
+                make.centerY.equalTo(backButton.snp.centerY)
+                make.top.equalTo(view.snp.top)
+                make.rightMargin.equalTo(addressButton.snp_leftMargin).offset(-10)
+            }
+            addressButton.snp.makeConstraints { make in
+                make.width.equalTo(40)
+                make.height.equalTo(40)
+                make.right.equalTo(view.snp.right).offset(-20)
+                make.centerY.equalTo(addressLabel.snp.centerY)
+            }
+            
+            myCartLabel.snp.makeConstraints { make in
+                make.height.equalTo(100)
+                make.width.equalTo(200)
+                make.left.equalTo(view.snp.left).offset(40)
+                make.top.equalTo(backButton.snp.bottom).offset(10)
+            }
+            
+            bottomView.snp.makeConstraints { make in
+                make.left.equalToSuperview()
+                make.right.equalToSuperview()
+                make.bottom.equalTo(view.snp.bottom)
+                make.top.equalTo(myCartLabel.snp.bottom)
+            }
+            firstLineView.snp.makeConstraints { make in
+                make.left.equalTo(bottomView.snp.left)
+                make.right.equalTo(bottomView.snp.right)
+                make.centerY.equalTo(bottomView.snp.centerY).offset(80)
+            }
+                
+        default:
+            break
+        }
+  
         backButton.snp.makeConstraints { make in
             make.left.equalTo(view.snp.left).offset(40)
             make.top.equalTo(view.snp.top).offset(80)
