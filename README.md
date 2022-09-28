@@ -3,7 +3,7 @@
 
 # Примерный интерфейс
 
-<img src="https://user-images.githubusercontent.com/102364472/188120783-12562d4c-9dfa-41a5-b121-06fdac43106f.png" width="200" /> <img src="https://user-images.githubusercontent.com/102364472/188120760-5fc69323-75a6-4492-97bd-65d9ca410c95.png" width="200" />
+<img src="https://user-images.githubusercontent.com/102364472/192723233-554c2e46-3cd1-49dd-91ba-b57a6e75f7d3.mp4" width="200" /> 
 
 # Installation
 У вас должны быть установлены SPM:<br>
