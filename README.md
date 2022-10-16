@@ -17,9 +17,11 @@ iOSDropDown - https://github.com/jriosdev/iOSDropDown
 # Дизайн приложения
 
 За пример использовался общедоступный макет из Figma <br>
-https://www.figma.com/file/KqZcU5m3GMxAHwgFkvCONz/ECOMMERCE?node-id=0%3A1
+https://www.figma.com/file/QAV7uRlO2cI3lYjNOVIwmo/Тестовое-IOS-(Copy)
 
 # Детали реализации
+
+MVP
 
 # Deployment Target
 
